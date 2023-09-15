@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+
+    <context:component-scan base-package="org.example" />
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/test" />
+        <property name="username" value="95smabdullah" />
+        <property name="password" value="IshallPA$$" />
+    </bean>
+
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+<!--    <bean id="bookDao" class="org.example.BookDAOImp">-->
+<!--        <constructor-arg ref="jdbcTemplate" />-->
+<!--    </bean>-->
+
+    <bean id="employeeDAO" class="org.assessment2.EmployeeDAO">
+        <constructor-arg ref="jdbcTemplate" />
+    </bean>
+
+<!--    <bean id="book" class="org.example.Book">-->
+<!--        <constructor-arg value="2"/>-->
+<!--        <constructor-arg value="book2"/>-->
+<!--        <constructor-arg value="me"/>-->
+<!--        <constructor-arg value="123"/>-->
+<!--    </bean>-->
+</beans>

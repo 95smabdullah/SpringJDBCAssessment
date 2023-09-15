@@ -25,18 +25,11 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-<!--    <bean id="bookDao" class="org.example.BookDAOImp">-->
-<!--        <constructor-arg ref="jdbcTemplate" />-->
-<!--    </bean>-->
+
 
     <bean id="employeeDAO" class="org.assessment2.EmployeeDAO">
         <constructor-arg ref="jdbcTemplate" />
     </bean>
 
-<!--    <bean id="book" class="org.example.Book">-->
-<!--        <constructor-arg value="2"/>-->
-<!--        <constructor-arg value="book2"/>-->
-<!--        <constructor-arg value="me"/>-->
-<!--        <constructor-arg value="123"/>-->
-<!--    </bean>-->
+
 </beans>
